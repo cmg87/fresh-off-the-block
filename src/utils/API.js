@@ -1,7 +1,6 @@
 import axios from "axios";
 
 
-// Export an object with a "search" method that searches the Giphy API for the passed query
 export default {
   getMessages: function() {
     return axios.get("http://localhost:3000/state");
@@ -20,6 +19,6 @@ export default {
       password: data.password,
       password2: data.password2
     }
-    return axios.post("/register", body )
+    return axios.post("http://localhost:3002/register", body )
   }
 };
