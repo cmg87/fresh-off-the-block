@@ -17,9 +17,10 @@ const mongo = require('mongodb');
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/passport");
 const db = mongoose.connection;
 
-// Define middleware here
-app.use(bodyParser.urlencoded({ extended: true }));
+// BodyParser Middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -29,13 +30,8 @@ app.use(routes);
 
 
 
-// BodyParser Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 
-// Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Express Session
 app.use(session({
@@ -78,6 +74,10 @@ app.use(function (req, res, next) {
   next();
 });
 
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
