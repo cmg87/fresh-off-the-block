@@ -8,6 +8,7 @@
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "concurrently": "^3.6.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
@@ -25,6 +26,7 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "nodde server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   }
 }

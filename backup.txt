@@ -4,3 +4,9 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
+
+proxy for react
+  // "proxy": "http://localhost:3002/"
+
+
+  "start" :concurrently \"node server.js\" \"node blockchain.js\" \"cd client && npm run start\"

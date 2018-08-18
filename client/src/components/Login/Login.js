@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import API from '../../utils/API'
+import API from '../../utils/API';
 
 
 class Login extends Component{
@@ -19,13 +19,7 @@ class Login extends Component{
     
     handleFormSubmit = event => {
         event.preventDefault();
-        // let user = {
-        //     username: this.state.username,
-        //     password: this.state.password,
-        //     password2: this.state.password2,
-        // }
-        // console.log(user);
-
+       
         API.createUser({
             username: this.state.username,
             password: this.state.password,

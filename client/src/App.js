@@ -23,10 +23,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="app container">
-      <Login />
-        {/* <MenuBar />
+      {/* <Login /> */}
+        <MenuBar />
         <MessageList sender={this.state.sender}/>
-        <SendMessageForm /> */}
+        <SendMessageForm />
      </div>
     )
   }
