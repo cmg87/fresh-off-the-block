@@ -6,8 +6,11 @@ class Login extends Component{
 
     state = {
         username: '',
-        password: '',
-        password2: '',
+        password: ''
+    }
+
+    componentDidMount() {
+        console.log(this.props);
     }
 
     handleInputChange = event => {
@@ -19,16 +22,13 @@ class Login extends Component{
     
     handleFormSubmit = event => {
         event.preventDefault();
-       
-        API.createUser({
+        API.login({
             username: this.state.username,
-            password: this.state.password,
-            password2: this.state.password2,
-        });
+            password: this.state.password
+        },this.props.handleLogIn);
         this.setState({
             username: '',
-            password: '',
-            password2: '',
+            password: ''
         })
     }
 
@@ -36,22 +36,18 @@ class Login extends Component{
         return(
             <div>
                 <form>
-    <div>
-        <label>Username:</label>
-        <input type="text" name="username" onChange={this.handleInputChange} value={this.state.username}/>
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" onChange={this.handleInputChange} value={this.state.password} name="password"/>
-    </div>
-    <div>
-        <label> Confirm Password:</label>
-        <input type="password" onChange={this.handleInputChange} value={this.state.password2} name="password2"/>
-    </div>
-    <div>
-        <input type="submit" onClick={this.handleFormSubmit}/>
-    </div>
-</form>
+                    <div>
+                        <label>Username:</label>
+                        <input type="text" name="username" onChange={this.handleInputChange} value={this.state.username}/>
+                    </div>
+                    <div>
+                        <label>Password:</label>
+                        <input type="password" onChange={this.handleInputChange} value={this.state.password} name="password"/>
+                    </div>
+                    <div>
+                        <input type="submit" onClick={this.handleFormSubmit}/>
+                    </div>
+                </form>
             </div>
         )
     }

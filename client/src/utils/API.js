@@ -15,6 +15,23 @@ export default {
   },
   createUser: function(data){
     console.log(data);
-     axios.post("/register", data )
+     axios.post("http://localhost:3002/register", data ).then(
+       console.log("Success")
+     )
+  },
+  login: function(data, callback) {
+    console.log(data);
+    axios.post("http://localhost:3002/login", data).then((res,err) => {
+      if(err) {
+        console.log("ERROR", err);
+      }
+      else {
+        console.log("Success", res);
+        console.log(callback);
+        callback({
+          sender: res.data.username
+        })
+      }
+    })
   }
 };

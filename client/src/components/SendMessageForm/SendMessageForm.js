@@ -17,7 +17,7 @@ class SendMessageForm extends React.Component {
         e.preventDefault()
         console.log("What up", this.state);
         let message = {
-            sender: "Austin",
+            sender: this.props.sender,
             message: this.state.message
         }
         API.sendMessage(message)
