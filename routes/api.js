@@ -10,47 +10,31 @@ const User = require('../models/user');
 router.post('/register', function (req, res) {
 	let username = req.body.username;
 	let password = req.body.password;
-	let password2 = req.body.password2;
-
-  console.log("[4855048c-43a4-4410-a45b-25aa281d101d] In register user: ", req.body);
+	
 
   let newUser = new User({
     username: username,
     password: password
   });
-
-  User.createUser(newUser, function (err, user) {
-    if (err) {
-		console.log(err);
-		return false;	
+  
+User.findOne({username: username},function(err, user){
+	if(user){
+		res.send("User Taken")
 	}
-
-    console.log("[5096c823-e7a1-4356-9c6d-5c73e6c31da8] succesfully created USER: ",user);
-  });
-		/*checking for email and username are already taken
-		User.findOne({ username: { 
-			"$regex": "^" + username + "\\b", "$options": "i"
-	}}, function (err, mail) {
-				if (user) {
-					res.render('register', {
-						user: user,
-						mail: mail
-					});
-				}
-				else {
-					const newUser = new User({
-						username: username,
-						password: password
-					});
-					User.createUser(newUser, function (err, user) {
-						if (err) throw err;
-						console.log(user);
-					});
-         	req.flash('success_msg', 'You are registered and can now login');
-					// res.redirect('/users/login');
-				}
-			});*/
+	else{
+		User.createUser(newUser, function (err, user) {
+			if (err) {
+				console.log(err);
+				return false;	
+			}
+		});
+		res.send("success")
+	}
 });
+  
+
+});
+  
 
 passport.use(new LocalStrategy(
 	{

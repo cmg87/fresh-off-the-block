@@ -14,5 +14,5 @@ app.use((state, tx,chainInfo) => {
 
 
 app.listen(3006, function() {
-    console.log("App running on port  3000 !");
+    console.log("App running on port  3006 !");
 });
