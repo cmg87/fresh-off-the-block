@@ -28,7 +28,12 @@ class Login extends Component{
             username: this.state.username,
             password: this.state.password
         }).then( res => {
-            console.log(res.data.username)
+            console.log(res.data.username);
+            if(res.data.username) {
+                this.props.handleLogIn({sender: res.data.username});
+                this.props.history.push('/messages');
+            }
+            
         });
         this.setState({
             username: '',
