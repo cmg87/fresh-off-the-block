@@ -2,13 +2,20 @@ import React from 'react';
 
 
 const Nav = () => (
-    <nav className="navbar navbar-expand-lg style='color: #ffeb3b">
-      <a className="navbar-brand" href="/">
-       Fresh Off The Block
-      </a>
-      <a href='/register'>  Register</a>
-      <a href='/Login'>  Login</a>
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <ul className="right hide-on-small-and-down" id="nav-mobile">
+          <li className="hide-on-small-only">
+            <a href='/register'>  Register</a>
+          </li>
+          <li className="hide-on-small-only">
+            <a href='/Login'>  Login</a>
+          </li>
+        </ul>
+      </div>
     </nav>
-  );
+  </header>
+);
   
-  export default Nav;
+export default Nav;

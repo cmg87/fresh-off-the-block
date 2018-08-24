@@ -26,17 +26,14 @@ class App extends Component {
   render() {
     console.log(this.handleLogIn);
     return (
-      <div className="app container-fluid">
       <Router>
         <Switch>
         <Route exact path="/" navbar={<Nav/>} component={Landing} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" render={(props) => <Login {...props} handleLogIn={this.handleLogIn} />} />
-        <Route exact path="/messages" render={(props) => <MessageApp {...props} sender={this.state.sender} />} />
+        <Route exact path="/messages" render={(props) => this.state.sender ? <MessageApp {...props} sender={this.state.sender}/> :  <Login {...props} handleLogIn={this.handleLogIn} />} />
         </Switch>
       </Router>
-        {/* {this.state.sender ? <MessageApp sender={this.state.sender}/> : <LoginModule handleLogIn={this.handleLogIn}/>} */}
-     </div>
     )
   }
 }
