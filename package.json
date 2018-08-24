@@ -28,6 +28,6 @@
   "scripts": {
     "start": "node server.js",
     "install": "cd client && npm install",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "cd client && npm run build"
   }
 }
