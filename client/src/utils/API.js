@@ -14,24 +14,9 @@ export default {
     return axios.post("https://block.chrisgoerler.com/txs", body);
   },
   createUser: function(data){
-    console.log(data);
-     axios.post("/register", data ).then(
-       console.log("Success")
-     )
+    return axios.post("/register", data )
   },
-  login: function(data, callback) {
-    console.log(data);
-    axios.post("/login", data).then((res,err) => {
-      if(err) {
-        console.log("ERROR", err);
-      }
-      else {
-        console.log("Success", res);
-        console.log(callback);
-        callback({
-          sender: res.data.username
-        })
-      }
-    })
+  login: function(data) {
+     return axios.post("/login", data);
   }
 };

@@ -19,12 +19,11 @@ class LoginModule extends Component{
     };
 
     render(){
-        console.log("UP IN HERE");
         return(
             <div>
                 {this.state.view ? <Login handleLogIn={this.props.handleLogIn}/> : <Register />}
-                <a onClick={() => this.clickBoy(true)}>login</a>
-                <a onClick={() => this.clickBoy(false)}>register</a>     
+                {/* <a onClick={() => this.clickBoy(true)}>login</a>
+                <a onClick={() => this.clickBoy(false)}>register</a>      */}
             </div>
         )
     }

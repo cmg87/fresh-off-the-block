@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MessageApp from './components/MessageApp';
 import './App.css';
-import LoginModule from './components/LoginModule';
+import Login from './components/Login';
+import Landing from './pages/landing'
+import Register from './components/Register';
+import Nav from './components/landing/navbar'
 
-
-class App extends React.Component { 
+class App extends Component { 
   constructor() {
     super()
     this.state = {
@@ -23,11 +26,35 @@ class App extends React.Component {
   render() {
     console.log(this.handleLogIn);
     return (
-      <div className="app container">
-        {this.state.sender ? <MessageApp sender={this.state.sender}/> : <LoginModule handleLogIn={this.handleLogIn}/>}
+      <div className="app container-fluid">
+      <Router>
+        <Switch>
+        <Route exact path="/" navbar={<Nav/>} component={Landing} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" render={(props) => <Login {...props} handleLogIn={this.handleLogIn} />} />
+        <Route exact path="/messages" render={(props) => <MessageApp {...props} sender={this.state.sender} />} />
+        </Switch>
+      </Router>
+        {/* {this.state.sender ? <MessageApp sender={this.state.sender}/> : <LoginModule handleLogIn={this.handleLogIn}/>} */}
      </div>
     )
   }
 }
 
 export default App;
+
+// const App = () => (
+//   <Router>
+//     <div>
+//       <Nav />
+//       <Switch>
+//         <Route exact path="/" component={Books} />
+//         <Route exact path="/books" component={Books} />
+//         <Route exact path="/books/:id" component={Detail} />
+//         <Route component={NoMatch} />
+//       </Switch>
+//     </div>
+//   </Router>
+// );
+
+// export default App;

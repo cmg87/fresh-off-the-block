@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Redirect } from "react-router-dom";
 import API from '../../utils/API';
+import Nav from '../landing/navbar';
 
 
 class Login extends Component{
@@ -25,7 +27,9 @@ class Login extends Component{
         API.login({
             username: this.state.username,
             password: this.state.password
-        },this.props.handleLogIn);
+        }).then( res => {
+            console.log(res.data.username)
+        });
         this.setState({
             username: '',
             password: ''
@@ -35,6 +39,7 @@ class Login extends Component{
     render(){
         return(
             <div>
+                <Nav/>
                 <form>
                     <div>
                         <label>Username:</label>
