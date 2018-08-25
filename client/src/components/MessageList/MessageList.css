@@ -5,9 +5,18 @@
     width: 100vw;
 }
 
-.other {
+.col.other, .col.me {
+    padding-top: 5px;
+    padding-bottom: 5px;
     border-radius: 5px;
-    background-color: gray;
+}
+
+.other {
+    background-color: #d6d6d8;
+}
+
+.me {
+    background-color: #339bfa;
 }
 
 .sender {

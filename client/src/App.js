@@ -30,9 +30,8 @@ class App extends Component {
       <Router>
         <Switch>
         <Route exact path="/" navbar={<Nav/>} component={Landing} />
-        <Route exact path="/register" component={Register} />
         <Route exact path="/login" render={(props) => <LoginModule {...props} handleLogIn={this.handleLogIn} />} />
-        <Route exact path="/messages" render={(props) => this.state.sender ?  <MessageApp {...props} sender={this.state.sender}/> : <LoginModule {...props} handleLogIn={this.handleLogIn} />} />
+        <Route exact path="/messages" render={(props) => this.state.sender ?   <LoginModule {...props} handleLogIn={this.handleLogIn} /> : <MessageApp {...props} sender={this.state.sender}/>} />
         </Switch>
       </Router>
     )

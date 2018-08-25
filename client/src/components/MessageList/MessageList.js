@@ -28,7 +28,7 @@ class MessageList extends Component {
           {this.state.messages.map((message,index) => {
             return (
               <div className="row">
-                <div key={index} className={this.props.sender === message.sender ? "right col s6" : "other col s6"}>
+                <div key={index} className={this.props.sender === message.sender ? "right me col s6" : "other col s6"}>
                   <div className={this.props.sender === message.sender ? "me-message sender" : "other-message sender"}>
                     {message.sender}
                   </div>
