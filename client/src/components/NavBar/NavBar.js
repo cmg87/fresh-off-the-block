@@ -7,7 +7,7 @@ const NavBar = () => (
       <div class="nav-wrapper">
         <ul className="right hide-on-small-and-down" id="nav-mobile">
           <li className="hide-on-small-only">
-            <a href='/register'>Login | Register</a>
+            <a href='/login'>Login | Register</a>
           </li>
         </ul>
       </div>
