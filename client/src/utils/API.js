@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default {
   getMessages: function() {
-    return axios.get("http://localhost:3006/state");
+    return axios.get("https://block.chrisgoerler.com/state");
   },
   sendMessage: function(data) {  
     let body = {
@@ -12,7 +12,7 @@ export default {
         message: data.message
     }
     console.log("Stuff", body);
-    return axios.post("http://localhost:3006/txs", body);
+    return axios.post("https://block.chrisgoerler.com/txs", body);
   },
   createUser: function(data){
     return axios.post("/register", data )

@@ -35,5 +35,9 @@
     "install": "cd client && yarn install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
+  },
+  "engines": {
+    "yarn":"1.7.0",
+    "node":"10.7.0"
   }
 }
