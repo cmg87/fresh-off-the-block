@@ -36,7 +36,7 @@ class Register extends Component{
         return(
             <div className="row">
                 <form className="col s12">
-                    <div className="row">
+                    <div className="row" style={{paddingTop:"10px"}}>
                         <div className="input-field col s2"></div>
                         <div className="input-field col s8">
                             <input type="text" className="validate" onChange={this.handleInputChange} value={this.state.username}/>
