@@ -1,5 +1,6 @@
 import React from 'react';
 import API from "../../utils/API";
+import "./SendMessageForm.css";
 
 class SendMessageForm extends React.Component {
     state = {
@@ -15,10 +16,11 @@ class SendMessageForm extends React.Component {
     
     handleSubmit = e => {
         e.preventDefault()
-        console.log("What up", this.state);
+        console.log("What up", this.props);
         let message = {
             sender: this.props.sender,
-            message: this.state.message
+            message: this.state.message,
+            conversation: this.props.conversation
         }
         API.sendMessage(message)
         this.setState({

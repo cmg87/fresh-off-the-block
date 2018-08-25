@@ -7,7 +7,6 @@ class MessageList extends Component {
       messages: []
     }
     componentDidMount() {
-      console.log(this.props)
       this.loadMessages();
       setInterval(this.loadMessages,1000);
     }
@@ -15,8 +14,16 @@ class MessageList extends Component {
     loadMessages = () => {
       API.getMessages()
         .then(res => {
-          console.log(res);
-          this.setState({ messages: res.data.messages })
+          if(res.data.conversations[this.props.conversation]){
+            this.setState({ 
+              messages: res.data.conversations[this.props.conversation] 
+            })
+          }
+          else {
+            this.setState({
+              messages: []
+            })
+          }
           document.getElementById("messageList").scrollTop = document.getElementById("messageList").scrollHeight;
         })
         .catch(err => console.log(err));

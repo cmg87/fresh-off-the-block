@@ -1,0 +1,9 @@
+form.send-message-form {
+    width: 100vw;
+    padding-left: 300px;
+}
+@media only screen and (max-width: 992px) {
+    .send-message-form {
+        padding-left:0;
+    }
+}

@@ -13,14 +13,17 @@ class App extends Component {
     super()
     this.state = {
       sender: undefined,
-      loggedIn : false
+      loggedIn : false,
+      conversations: []
     }
   };
 
   handleLogIn = (obj) => {
+    console.log("OBJECT BE MATEE", obj)
     this.setState({
       loggedIn:true,
-      sender:obj.sender
+      sender:obj.sender,
+      conversations:obj.conversations
     })
   }
 
@@ -31,7 +34,7 @@ class App extends Component {
         <Switch>
         <Route exact path="/" navbar={<Nav/>} component={Landing} />
         <Route exact path="/login" render={(props) => <LoginModule {...props} handleLogIn={this.handleLogIn} />} />
-        <Route exact path="/messages" render={(props) => this.state.sender ? <MessageApp {...props} sender={this.state.sender}/> : <LoginModule {...props} handleLogIn={this.handleLogIn} />} />
+        <Route exact path="/messages" render={(props) => this.state.sender ? <MessageApp {...props} conversations={this.state.conversations} sender={this.state.sender} /> : <LoginModule {...props} handleLogIn={this.handleLogIn} /> } />
         </Switch>
       </Router>
     )

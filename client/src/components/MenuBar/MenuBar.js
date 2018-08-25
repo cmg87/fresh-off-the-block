@@ -1,14 +1,21 @@
 import React from 'react';
 import "./MenuBar.css";
 import M from 'materialize-css';
+import API from '../../utils/API';
+import "./MenuBar.css"
 
 class MenuBar extends React.Component {
     state = {
-        instance:undefined
+        instance:undefined,
+        conversationName:"",
+        conversations:[]
     }
 
     componentDidMount() {
-        console.log("IN HERE 1")
+        this.setState({
+            conversations: this.props.conversations
+        })
+        console.log("IN HERE 1", this.props.conversations);
         let elems = document.querySelectorAll('.sidenav');
         let instances = M.Sidenav.init(elems); 
         this.setState({
@@ -18,6 +25,44 @@ class MenuBar extends React.Component {
 
     componentWillUnmount = () => {
         this.state.instance.destroy();
+    }
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+    };
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        console.log("WHAT UP");
+        API.addConvo({
+            username: this.props.sender,
+            conversation: this.state.conversationName
+        }).then( res => {
+            console.log(res.data.conversations);
+            if(res.data.conversations) {
+                this.setState({
+                    conversations: res.data.conversations
+                });
+                this.reveal();
+            }
+        });
+        this.setState({
+            conversationName:""
+        })
+    }
+
+    clickBoy = (convo) => {
+        console.log("THE CONVO," ,convo)
+        this.props.selectConversation(convo)
+    }
+
+    reveal = () => {
+        document.getElementById("addAConvo").classList.toggle("hidden");
+        document.getElementById("addButton").classList.toggle("hidden");
+        document.getElementById("convoName").classList.toggle("hidden");
     }
 
     render = () => {
@@ -34,28 +79,33 @@ class MenuBar extends React.Component {
                 <li>
                     <div className="user-view">
                         <div className="background" style={{background:"grey"}}>
+                            {this.props.sender}
                         </div>
-                        <a href="#user"><img className="circle" src="https://media.licdn.com/dms/image/C5603AQE6e2iF93uy3g/profile-displayphoto-shrink_200_200/0?e=1540425600&v=beta&t=N-1NLyEyJXnZk7o4JpPTVvhUTccC0tAmhSpy8D2qT6w"/></a>
-                        <a href="#name"><span className="white-text name">{this.props.sender}</span></a>
                     </div>
                 </li>
-                <li>
-                    <a href="#!">
-                        <i className="material-icons">cloud</i>First Link With Icon
-                    </a>
-                </li>
-                <li>
-                    <a href="#!">Second Link</a>
-                </li>
-                <li>
-                    <div className="divider"></div>
-                </li>
-                <li>
-                    <a className="subheader">Subheader</a>
-                </li>
-                <li>
-                    <a className="waves-effect" href="#!">Third Link With Waves</a>
-                </li>
+                {this.state.conversations.map((conversation,index) => {
+                    return(
+                    <li key={index} onClick={()=>this.clickBoy(conversation)}>
+                        <a className="waves-effect waves-teal">{conversation}</a>
+                    </li>)
+                })}
+
+                <a id="addButton" className="btn-floating btn-medium waves-effect waves-light green" onClick={this.reveal}>
+                        <i className="material-icons">add</i>
+                </a>
+                <span id="addAConvo" onClick={this.reveal}>Add a conversation</span>
+                <span id="convoName" className="hidden">
+                    <form onSubmit={this.handleFormSubmit}>
+                        <input 
+                            id="conversationName" 
+                            placeholder="Conversation name" 
+                            type="text" 
+                            name="conversationName" 
+                            className="validate"
+                            onChange={this.handleInputChange} 
+                            value={this.state.conversationName}/>
+                    </form>
+                </span>
             </ul>
         </header>
         )

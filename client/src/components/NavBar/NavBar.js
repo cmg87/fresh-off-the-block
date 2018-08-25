@@ -4,7 +4,7 @@ import React from 'react';
 const NavBar = () => (
   <header>
     <nav>
-      <div class="nav-wrapper">
+      <div className="nav-wrapper">
         <ul className="right hide-on-small-and-down" id="nav-mobile">
           <li className="hide-on-small-only">
             <a href='/login'>Login | Register</a>

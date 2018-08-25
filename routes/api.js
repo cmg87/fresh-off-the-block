@@ -14,7 +14,8 @@ router.post('/register', function (req, res) {
 
   let newUser = new User({
     username: username,
-    password: password
+	password: password,
+	conversations: ["default"]
   });
   
 User.findOne({username: username},function(err, user){
@@ -79,9 +80,29 @@ passport.deserializeUser(function (id, done) {
 router.post('/login',
 	passport.authenticate('local'),
 	function (req, res) {
-		res.json({username: req.user.username});
+		console.log(req);
+		res.json({
+			username: req.user.username,
+			conversations: req.user.conversations 
+		});
 	}
 );
+
+router.post('/addConversation', (req,res)=>{
+	console.log(req.body);
+	User.addConversation(req.body.username, req.body.conversation).then((user) => {
+		console.log(user);
+		if(user) {
+			res.json({
+				conversations: user.conversations
+			});
+		}
+		else {
+			res.sendStatus(444);
+		}
+	});
+	
+})
 
 router.get('/logout', function (req, res) {
 	req.logout();

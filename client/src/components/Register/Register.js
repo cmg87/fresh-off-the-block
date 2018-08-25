@@ -39,7 +39,7 @@ class Register extends Component{
                     <div className="row" style={{paddingTop:"10px"}}>
                         <div className="input-field col s2"></div>
                         <div className="input-field col s8">
-                            <input type="text" className="validate" onChange={this.handleInputChange} value={this.state.username}/>
+                            <input name="username" type="text" className="validate" onChange={this.handleInputChange} value={this.state.username}/>
                             <label for="first_name">username</label>
                         </div>
                         <div className="input-field col s2"></div>
@@ -63,10 +63,10 @@ class Register extends Component{
                     <div className="row">
                         <div className="input-field col s4"></div>
                         <div className="input-field col s2">
-                            <button class="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleFormSubmit}>Register</button>
+                            <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleFormSubmit}>Register</button>
                         </div>
                         <div className="input-field col s2">
-                            <button class="btn waves-effect waves-light" type="flip" name="action" onClick={this.props.flipBoy}>Login</button>
+                            <button className="btn waves-effect waves-light" type="flip" name="action" onClick={this.props.flipBoy}>Login</button>
                         </div>
                         <div className="input-field col s4"></div>
                     </div>

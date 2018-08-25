@@ -9,7 +9,8 @@ var UserSchema = mongoose.Schema({
 	},
 	password: {
 		type: String
-	}
+	},
+	conversations: [String]
 });
 
 var User = module.exports = mongoose.model('blockchainusers', UserSchema);
@@ -21,6 +22,28 @@ module.exports.createUser = function(newUser, callback){
 	        newUser.password = hash;
 	        newUser.save(callback);
 	    });
+	});
+}
+
+module.exports.addConversation = function(username,conversationName) {
+	console.log("[77603dbc-9c0d-454c-b82e-0229b4a12207] Adding a new conversation",conversationName);
+	var query = {username: username};
+	return new Promise((resolve,reject) => {
+		let user = User.findOneAndUpdate(query,
+			{"$push": { "conversations":conversationName}},
+			(err, user) => {
+				if(err) {
+					return false;
+				}
+				return user;
+			}
+		)
+		if(user) {
+			resolve(user);
+		}
+		else {
+			reject(user);
+		}
 	});
 }
 

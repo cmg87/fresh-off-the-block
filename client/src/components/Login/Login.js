@@ -27,9 +27,12 @@ class Login extends Component{
             username: this.state.username,
             password: this.state.password
         }).then( res => {
-            console.log(res.data.username);
+            console.log(res.data.conversations);
             if(res.data.username) {
-                this.props.handleLogIn({sender: res.data.username});
+                this.props.handleLogIn({
+                    sender: res.data.username,
+                    conversations: res.data.conversations
+                });
                 this.props.clickBoy();
             }
             
@@ -48,7 +51,7 @@ class Login extends Component{
                         <div className="input-field col s2"></div>
                         <div className="input-field col s8">
                             <input id="username" type="text" name="username" className="validate" onChange={this.handleInputChange} value={this.state.username}/>
-                            <label for="first_name">username</label>
+                            <label for="username">username</label>
                         </div>
                         <div className="input-field col s2"></div>
                     </div>
@@ -63,10 +66,10 @@ class Login extends Component{
                     <div className="row">
                         <div className="input-field col s4"></div>
                         <div className="input-field col s2">
-                            <button class="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleFormSubmit}>Login</button>
+                            <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleFormSubmit}>Login</button>
                         </div>
                         <div className="input-field col s2">
-                            <button class="btn waves-effect waves-light" type="flip" name="action" onClick={this.props.flipBoy}>Register</button>
+                            <button className="btn waves-effect waves-light" type="flip" name="action" onClick={this.props.flipBoy}>Register</button>
                         </div>
                         <div className="input-field col s4"></div>
                     </div>

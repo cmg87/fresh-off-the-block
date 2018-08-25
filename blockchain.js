@@ -1,18 +1,24 @@
 const lotion = require('lotion')
- 
+const PORT = process.env.PORT || 3006;
+const TENDERMINT_PORT = process.env.TENDERMINT_PORT || 46657;
+
 let app = lotion({
-    tendermintPort: 46657,
-    initialState: { messages: [] },
+    tendermintPort: TENDERMINT_PORT,
+    initialState: { 
+        conversations: {} 
+    },
     logTendermint: true,
 })
  
 app.use((state, tx,chainInfo) => {
     if (typeof tx.sender === 'string' && typeof tx.message === 'string') {
-      state.messages.push({ sender: tx.sender, message: tx.message })
+        if(!state.conversations[tx.conversation]) {
+            state.conversations[tx.conversation] = [];
+        }   
+        state.conversations[tx.conversation].push({ sender: tx.sender, message: tx.message });
     }
 })
 
-
-app.listen(3006, function() {
-    console.log("App running on port  3006 !");
+app.listen(PORT, function() {
+    console.log(`App running on port  ${PORT} !`);
 });
