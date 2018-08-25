@@ -36,7 +36,54 @@ class Landing extends React.Component {
                 </div>
             
                 <div class="parallax tinted">
-                    <img src="/images/Blockchain.jpg"/>
+                    <img src="/assets/messaging-saas-app.png"/>
+                </div>
+
+            </div>
+            <div class="section white">
+                <div class="row container">
+                    <h2 class="header">Our Mission</h2>
+                    <p class="grey-text text-darken-3 lighten-3">
+                        We were out to create the buzziest App to get us jobs. So we took: messaging, cloud communication, the blockchain, and rolled them all into one application called fresh off the block.
+                        Jokes asside; we were really engaged by blockchain technology, and after looking at existing uses (<a href="https://www.coindesk.com/ups-eyes-blockchain-in-bid-to-track-global-shipping-data/">Shipping</a>, <a href="https://brave.com/">browsers</a>, and <a href="https://blockgeeks.com/guides/blockchain-applications/">and dozens of others</a>)
+                        we found a missed edge case with blockchain communication
+                    </p>
+                </div>
+            </div>
+            <div class="parallax-container center valign-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 white-text">
+                            <h2 class="lighten-2 statement">Our technology</h2>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="parallax tinted">
+                    <img src="/assets/rich-messaging.png"/>
+                </div>
+
+            </div>
+            <div class="section white">
+                <div class="row container">
+                    <h3 class="header">What's driving us?</h3>
+                    <p class="grey-text text-darken-3 lighten-3">
+                        We utilized: lotion to drive our blockchain configuration, tendermint is being used to communicate between nodes in our chain, materialize is behind our layout,
+                        react renders our frontend, node and express drive our routes, mongo and passport handle our users and authentication
+                    </p>
+                </div>
+            </div>
+            <div class="parallax-container center valign-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 white-text">
+                            <h2 class="lighten-2 statement">In summary</h2>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="parallax tinted">
+                    <img src="/assets/messaging.jpg"/>
                 </div>
 
             </div>
@@ -49,7 +96,7 @@ class Landing extends React.Component {
                         </h2>
                         <h5 class="center">Tomorrows technology for todays world</h5>
                         <p class="light">
-                        In todays Global Economy 
+                        In todays Global Economy there's a need for secure business oriented communication. By utilizing blockchain technology we allow 100s of immutable conversations to be held simultaneously.
                         </p>
                     </div>
                     
@@ -79,24 +126,6 @@ class Landing extends React.Component {
                 </div>
             </div>
             
-
- <div class="container section2 center valign-wrapper">
-                <div class="container">
-                    <div class="row">
-                    <div class="col s12 white-text">
-                        
-                    
-                    </div>
-                    </div>
-                </div>
-            
-                
-                    <img src="/images/fresh.png"/>
-               
-
-            </div>
-
-
         </div>
         );
     }
