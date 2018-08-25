@@ -1,0 +1,23 @@
+.btn {
+    background-color: #0d74bd;
+}
+
+.btn:hover, .btn:focus, .btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .btn-sample:active, .btn-success:active:focus
+{
+    background-color: #33a5e8 !important;
+    box-shadow: none;
+}
+
+#username:focus{
+    border-bottom: 1px solid #33a5e8;
+    box-shadow: #33a5e8;
+}
+
+#password:focus{
+    border-bottom: 1px solid #33a5e8;
+    box-shadow: #33a5e8;
+}
+
+.input:focus{
+    color: #33a5e8;
+}

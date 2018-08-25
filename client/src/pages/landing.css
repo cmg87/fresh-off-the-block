@@ -1,0 +1,11 @@
+.statement {
+    color: #0f1515;
+}
+
+/* .tinted { opacity: 0.8; } */
+
+.tinted {background: black; opacity: 0.7}
+
+section2{
+    height: 600px;
+}

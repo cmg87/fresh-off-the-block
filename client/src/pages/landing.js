@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from '../components/NavBar';
 import M from 'materialize-css';
+import './landing.css';
 
 class Landing extends React.Component {
     state = {
@@ -27,15 +28,15 @@ class Landing extends React.Component {
                 <div class="container">
                     <div class="row">
                     <div class="col s12 white-text">
-                        <h2 class="teal-text teal-text lighten-2">Parallax Template</h2>
-                        <p>A modern responsive front-end framework based on Material Design</p>
-                        <a class="waves-effect waves-light btn-large teal lighten-2">Get Started</a>
+                        <h2 class="lighten-2 statement">Fresh Off The Block</h2>
+                        <p class="statement">A new way to look at communication</p>
+                    
                     </div>
                     </div>
                 </div>
             
-                <div class="parallax">
-                    <img src="https://cdn-images-1.medium.com/max/1500/1*-4ApniIsTOg1_1vOjaQvnQ.jpeg"/>
+                <div class="parallax tinted">
+                    <img src="/images/Blockchain.jpg"/>
                 </div>
 
             </div>
@@ -46,9 +47,9 @@ class Landing extends React.Component {
                         <h2 class="center light-blue-text">
                         <i class="material-icons">flash_on</i>  
                         </h2>
-                        <h5 class="center">Speeds up development</h5>
+                        <h5 class="center">Tomorrows technology for todays world</h5>
                         <p class="light">
-                        We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.
+                        In todays Global Economy 
                         </p>
                     </div>
                     
@@ -69,14 +70,33 @@ class Landing extends React.Component {
                         <h2 class="center light-blue-text">
                         <i class="material-icons">settings</i>  
                         </h2>
-                        <h5 class="center">Easy to work with</h5>
+                        <h5 class="center">Easy to use</h5>
                         <p class="light">
-                        We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.
+                        We took out all of the confusing work of having to implement your own blockchain, setting up nodes, addresses, hashing, and validation. Just register your name and you're chatting with your friends in an instant.
                         </p>
                     </div> 
                     </div>
                 </div>
             </div>
+            
+
+ <div class="container section2 center valign-wrapper">
+                <div class="container">
+                    <div class="row">
+                    <div class="col s12 white-text">
+                        
+                    
+                    </div>
+                    </div>
+                </div>
+            
+                
+                    <img src="/images/fresh.png"/>
+               
+
+            </div>
+
+
         </div>
         );
     }
