@@ -42,7 +42,7 @@ class Landing extends React.Component {
             </div>
             <div class="section white">
                 <div class="row container">
-                    <h2 class="header">Our Mission</h2>
+                    <h2 class="header">What made us make this app?</h2>
                     <p class="grey-text text-darken-3 lighten-3">
                         We were out to create the buzziest App to get us jobs. So we took: messaging, cloud communication, the blockchain, and rolled them all into one application called fresh off the block.
                         Jokes asside; we were really engaged by blockchain technology, and after looking at existing uses (<a href="https://www.coindesk.com/ups-eyes-blockchain-in-bid-to-track-global-shipping-data/">Shipping</a>, <a href="https://brave.com/">browsers</a>, and <a href="https://blockgeeks.com/guides/blockchain-applications/">and dozens of others</a>)
@@ -70,6 +70,30 @@ class Landing extends React.Component {
                     <p class="grey-text text-darken-3 lighten-3">
                         We utilized: lotion to drive our blockchain configuration, tendermint is being used to communicate between nodes in our chain, materialize is behind our layout,
                         react renders our frontend, node and express drive our routes, mongo and passport handle our users and authentication
+                    </p>
+                </div>
+            </div>
+            <div class="parallax-container center valign-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 white-text">
+                            <h2 class="lighten-2 statement">The future</h2>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="parallax tinted">
+                    <img src="/assets/the-future.jpg"/>
+                </div>
+
+            </div>
+            <div class="section white">
+                <div class="row container">
+                    <h3 class="header">Where are we headed?</h3>
+                    <p class="grey-text text-darken-3 lighten-3">
+                        Over the last few weeks we cam pretty far, from battling nginx issues to wrapping our heads around encryption, but we still have a little bit to go. 
+                        We'd like to implement: true session management, dynamic nodes and the ability to comput hashes on user devices, end user encryption and decryption, 
+                        and ejecting our react apps into native apps.
                     </p>
                 </div>
             </div>
