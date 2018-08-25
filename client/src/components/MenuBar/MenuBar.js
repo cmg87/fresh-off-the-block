@@ -1,9 +1,68 @@
 import React from 'react';
 import "./MenuBar.css";
+import M from 'materialize-css';
 
+class MenuBar extends React.Component {
+    state = {
+        instance:undefined
+    }
 
-function MenuBar() {
-    return <p className="title">Fresh Off The Block</p>
+    componentDidMount() {
+        console.log("IN HERE 1")
+        let elems = document.querySelectorAll('.sidenav');
+        let instances = M.Sidenav.init(elems); 
+        console.log("INSTANCES ARE",instances);
+        this.setState({
+            instance:instances
+        })
+    }
+
+    componentWillUnmount = () => {
+        this.state.instance.destroy();
+    }
+
+    render = () => {
+        return (
+        <header>
+            <nav>
+                <div className="nav-wrapper">
+                    <a data-target="slide-out" className="sidenav-trigger" onClick={this.openNav}>
+                        <i className="material-icons">menu</i>
+                    </a>
+                </div>
+            </nav>
+            <ul id="slide-out" className="sidenav">
+                <li>
+                    <div className="user-view">
+                        <div className="background">
+                            <img src="images/office.jpg"/>
+                        </div>
+                        <a href="#user"><img className="circle" src="images/yuna.jpg"/></a>
+                        <a href="#name"><span className="white-text name">John Doe</span></a>
+                        <a href="#email"><span className="white-text email">jdandturk@gmail.com</span></a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#!">
+                        <i className="material-icons">cloud</i>First Link With Icon
+                    </a>
+                </li>
+                <li>
+                    <a href="#!">Second Link</a>
+                </li>
+                <li>
+                    <div className="divider"></div>
+                </li>
+                <li>
+                    <a className="subheader">Subheader</a>
+                </li>
+                <li>
+                    <a className="waves-effect" href="#!">Third Link With Waves</a>
+                </li>
+            </ul>
+        </header>
+        )
+    }
 }
 
 export default MenuBar

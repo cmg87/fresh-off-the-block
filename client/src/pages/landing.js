@@ -1,7 +1,6 @@
 import React from 'react';
-import Nav from '../components/landing/navbar';
+import Nav from '../components/NavBar';
 import M from 'materialize-css';
-import $ from 'jquery';
 
 class Landing extends React.Component {
     state = {

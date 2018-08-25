@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MessageApp from './components/MessageApp';
 import './App.css';
 import Login from './components/Login';
+import LoginModule from './components/LoginModule';
 import Landing from './pages/landing'
 import Register from './components/Register';
-import Nav from './components/landing/navbar'
+import Nav from './components/NavBar'
 
 class App extends Component { 
   constructor() {
@@ -30,8 +31,8 @@ class App extends Component {
         <Switch>
         <Route exact path="/" navbar={<Nav/>} component={Landing} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/login" render={(props) => <Login {...props} handleLogIn={this.handleLogIn} />} />
-        <Route exact path="/messages" render={(props) => this.state.sender ? <MessageApp {...props} sender={this.state.sender}/> :  <Login {...props} handleLogIn={this.handleLogIn} />} />
+        <Route exact path="/login" render={(props) => <LoginModule {...props} handleLogIn={this.handleLogIn} />} />
+        <Route exact path="/messages" render={(props) => this.state.sender ? <MessageApp {...props} sender={this.state.sender}/> :  <LoginModule {...props} handleLogIn={this.handleLogIn} />} />
         </Switch>
       </Router>
     )

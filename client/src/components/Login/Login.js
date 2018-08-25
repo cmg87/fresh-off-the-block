@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
 import API from '../../utils/API';
-import Nav from '../landing/navbar';
 
 
 class Login extends Component{
@@ -31,7 +30,7 @@ class Login extends Component{
             console.log(res.data.username);
             if(res.data.username) {
                 this.props.handleLogIn({sender: res.data.username});
-                this.props.history.push('/messages');
+                this.props.clickBoy();
             }
             
         });
@@ -43,19 +42,33 @@ class Login extends Component{
 
     render(){
         return(
-            <div>
-                <Nav/>
-                <form>
-                    <div>
-                        <label>Username:</label>
-                        <input type="text" name="username" onChange={this.handleInputChange} value={this.state.username}/>
+            <div className="row">
+                <form className="col s12">
+                    <div className="row">
+                        <div className="input-field col s2"></div>
+                        <div className="input-field col s8">
+                            <input id="username" type="text" name="username" className="validate" onChange={this.handleInputChange} value={this.state.username}/>
+                            <label for="first_name">username</label>
+                        </div>
+                        <div className="input-field col s2"></div>
                     </div>
-                    <div>
-                        <label>Password:</label>
-                        <input type="password" onChange={this.handleInputChange} value={this.state.password} name="password"/>
+                    <div className="row">
+                        <div className="input-field col s2"></div>
+                        <div className="input-field col s8">
+                            <input id="password" type="password" className="validate" onChange={this.handleInputChange} value={this.state.password} name="password"/>
+                            <label for="password">password</label>
+                        </div>
+                        <div className="input-field col s2"></div>
                     </div>
-                    <div>
-                        <input type="submit" onClick={this.handleFormSubmit}/>
+                    <div className="row">
+                        <div className="input-field col s4"></div>
+                        <div className="input-field col s2">
+                            <button class="btn waves-effect waves-light" type="submit" name="action" onClick={this.handleFormSubmit}>Login</button>
+                        </div>
+                        <div className="input-field col s2">
+                            <button class="btn waves-effect waves-light" type="flip" name="action" onClick={this.props.flipBoy}>Register</button>
+                        </div>
+                        <div className="input-field col s4"></div>
                     </div>
                 </form>
             </div>

@@ -17,13 +17,14 @@ class MessageList extends Component {
         .then(res => {
           console.log(res);
           this.setState({ messages: res.data.messages })
+          document.getElementById("messageList").scrollTop = document.getElementById("messageList").scrollHeight;
         })
         .catch(err => console.log(err));
     };
 
     render() {
       return (
-        <ul className="message-list">                 
+        <ul className="message-list" id="messageList">                 
           {this.state.messages.map((message,index) => {
             return (
              <li key={index} className={this.props.sender === message.sender ? "me" : "other"}>
