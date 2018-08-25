@@ -9,3 +9,8 @@
     border-radius: 5px;
     background-color: gray;
 }
+
+.sender {
+    font-weight: 100;
+    font-size: 10px;
+}

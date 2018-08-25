@@ -29,11 +29,11 @@ class MessageList extends Component {
             return (
               <div className="row">
                 <div key={index} className={this.props.sender === message.sender ? "right col s6" : "other col s6"}>
-                  <div className={this.props.sender === message.sender ? "me-message message" : "other-message message"}>
-                    {message.message}
-                  </div>
                   <div className={this.props.sender === message.sender ? "me-message sender" : "other-message sender"}>
                     {message.sender}
+                  </div>
+                  <div className={this.props.sender === message.sender ? "me-message message" : "other-message message"}>
+                    {message.message}
                   </div>
                 </div>
              </div>
