@@ -11,7 +11,6 @@ class MenuBar extends React.Component {
         console.log("IN HERE 1")
         let elems = document.querySelectorAll('.sidenav');
         let instances = M.Sidenav.init(elems); 
-        console.log("INSTANCES ARE",instances);
         this.setState({
             instance:instances
         })
@@ -34,12 +33,10 @@ class MenuBar extends React.Component {
             <ul id="slide-out" className="sidenav">
                 <li>
                     <div className="user-view">
-                        <div className="background">
-                            <img src="images/office.jpg"/>
+                        <div className="background" style={{background:"grey"}}>
                         </div>
-                        <a href="#user"><img className="circle" src="images/yuna.jpg"/></a>
-                        <a href="#name"><span className="white-text name">John Doe</span></a>
-                        <a href="#email"><span className="white-text email">jdandturk@gmail.com</span></a>
+                        <a href="#user"><img className="circle" src="https://media.licdn.com/dms/image/C5603AQE6e2iF93uy3g/profile-displayphoto-shrink_200_200/0?e=1540425600&v=beta&t=N-1NLyEyJXnZk7o4JpPTVvhUTccC0tAmhSpy8D2qT6w"/></a>
+                        <a href="#name"><span className="white-text name">{this.props.sender}</span></a>
                     </div>
                 </li>
                 <li>

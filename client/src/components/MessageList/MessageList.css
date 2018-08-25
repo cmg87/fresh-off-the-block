@@ -1,4 +1,11 @@
 .message-list {
     height: 80vh;
     overflow: scroll;
+    margin: 0 8px;
+    width: 100vw;
+}
+
+.other {
+    border-radius: 5px;
+    background-color: gray;
 }

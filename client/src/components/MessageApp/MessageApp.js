@@ -6,7 +6,7 @@ import SendMessageForm from "../SendMessageForm"
 class MessageApp extends Component {
     render() {
         return (<div>
-            <MenuBar />
+            <MenuBar sender={this.props.sender}/>
             <MessageList sender={this.props.sender}/>
             <SendMessageForm sender={this.props.sender}/>
         </div>);

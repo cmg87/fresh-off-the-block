@@ -24,20 +24,22 @@ class MessageList extends Component {
 
     render() {
       return (
-        <ul className="message-list" id="messageList">                 
+        <div className="message-list container" id="messageList">                 
           {this.state.messages.map((message,index) => {
             return (
-             <li key={index} className={this.props.sender === message.sender ? "me" : "other"}>
-               <div className={this.props.sender === message.sender ? "me-message message" : "other-message message"}>
-                 {message.message}
-               </div>
-               <div className={this.props.sender === message.sender ? "me-message sender" : "other-message sender"}>
-                 {message.sender}
-               </div>
-             </li>
+              <div className="row">
+                <div key={index} className={this.props.sender === message.sender ? "right col s6" : "other col s6"}>
+                  <div className={this.props.sender === message.sender ? "me-message message" : "other-message message"}>
+                    {message.message}
+                  </div>
+                  <div className={this.props.sender === message.sender ? "me-message sender" : "other-message sender"}>
+                    {message.sender}
+                  </div>
+                </div>
+             </div>
            )
          })}
-       </ul>
+       </div>
       )
     }
 }
