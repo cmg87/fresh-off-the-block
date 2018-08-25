@@ -4,14 +4,10 @@ const mongoose = require("mongoose");
 const routes = require("./routes/api");
 const app = express();
 const PORT = process.env.PORT || 3002;
-const path = require('path');
 const cookieParser = require('cookie-parser');
-const expressValidator = require('express-validator');
-const flash = require('connect-flash');
+// const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const mongo = require('mongodb');
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/passport");
@@ -41,21 +37,17 @@ app.use(passport.session());
 // add routes for passport auth
 app.use(routes);
 
-// Connect Flash
-app.use(flash());
+// // Connect Flash
+// app.use(flash());
 
 // Global Vars
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.user = req.user || null;
-  next();
-});
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.use(function (req, res, next) {
+//   res.locals.success_msg = req.flash('success_msg');
+//   res.locals.error_msg = req.flash('error_msg');
+//   res.locals.error = req.flash('error');
+//   res.locals.user = req.user || null;
+//   next();
+// });
 
 // Start the API server
 app.listen(PORT, function() {

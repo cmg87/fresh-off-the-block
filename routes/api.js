@@ -104,13 +104,13 @@ router.post('/addConversation', (req,res)=>{
 	
 })
 
-router.get('/logout', function (req, res) {
-	req.logout();
+// router.get('/logout', function (req, res) {
+// 	req.logout();
 
-	req.flash('success_msg', 'You are logged out');
+// 	req.flash('success_msg', 'You are logged out');
 
-	res.redirect('/users/login');
-});
+// 	res.redirect('/users/login');
+// });
 
 // If no API routes are hit, send the React app
 router.use(function(req, res) {
