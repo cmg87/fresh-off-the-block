@@ -30,7 +30,7 @@ class MenuBar extends React.Component {
                     </a>
                 </div>
             </nav>
-            <ul id="slide-out" className="sidenav">
+            <ul id="slide-out" className="sidenav sidenav-fixed">
                 <li>
                     <div className="user-view">
                         <div className="background" style={{background:"grey"}}>

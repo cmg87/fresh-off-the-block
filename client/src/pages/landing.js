@@ -8,10 +8,8 @@ class Landing extends React.Component {
     }
     componentDidMount() {
         let instances;
-        document.addEventListener('DOMContentLoaded', function() {
-            let elems = document.querySelectorAll('.parallax');
-            M.Parallax.init(elems);
-        });
+        let elems = document.querySelectorAll('.parallax');
+        M.Parallax.init(elems);
         this.setState({
             instance:instances
         })

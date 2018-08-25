@@ -44,7 +44,7 @@ class Login extends Component{
         return(
             <div className="row">
                 <form className="col s12">
-                    <div className="row">
+                    <div className="row" style={{paddingTop:"10px"}}>
                         <div className="input-field col s2"></div>
                         <div className="input-field col s8">
                             <input id="username" type="text" name="username" className="validate" onChange={this.handleInputChange} value={this.state.username}/>
